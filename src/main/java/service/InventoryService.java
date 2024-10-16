@@ -31,7 +31,6 @@ public class InventoryService {
 			statement.executeUpdate(category);
 
 		} catch (Exception e) {
-			e.printStackTrace();
 			System.out.println("Connection error.");
 		}
 	}
