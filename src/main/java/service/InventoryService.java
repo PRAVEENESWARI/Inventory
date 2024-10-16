@@ -73,7 +73,7 @@ public class InventoryService {
 			String update = "UPDATE Product SET quantity = ? ,price= ? WHERE productId = ?";
 			PreparedStatement pst = connect.prepareStatement(update);
 			pst.setInt(1, (product.getQuantity() + addValue));
-			pst.setDouble(2, (addPrice / addValue) * (product.getQuantity() + addValue));
+			pst.setDouble(2, ((double) addPrice / addValue) * (product.getQuantity() + addValue));
 			pst.setInt(3, productId);
 
 			pst.executeUpdate();
