@@ -12,22 +12,21 @@ public class ProductEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int productId;
 
-    @Column(name="productName")
+    @Column(name="productName", nullable = false)
     private String productName;
 
-    @Column(name="price")
+    @Column(name="price", nullable = false)
     private double price;
 
-    @Column(name="quantity")
+    @Column(name="quantity", nullable = false)
     private int quantity;
 
-    @Column(name="description")
+    @Column(name="description" , nullable = false)
     private String description;
 
-    // Many products can belong to one category
+
     @OneToOne
     @JoinColumn(name = "categoryId", referencedColumnName = "categoryId", nullable = false)
-    @JsonBackReference
     private CategoryEntity category;
 
     public ProductEntity() {}
@@ -80,7 +79,6 @@ public class ProductEntity {
         this.description = description;
     }
 
-    @JsonIgnore
     public CategoryEntity getCategory() {
         return category;
     }
@@ -92,4 +90,5 @@ public class ProductEntity {
     public String getCategoryType() {
         return category.getCategoryType();
     }
+
 }
