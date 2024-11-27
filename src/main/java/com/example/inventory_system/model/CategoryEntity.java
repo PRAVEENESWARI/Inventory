@@ -9,9 +9,9 @@ public class CategoryEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int categoryId;
-
+    @Column(name="categoryType", nullable = false)
     private String categoryType;
-
+    @Column(name = "brand", nullable = false)
     private String brand;
 
     public CategoryEntity(int categoryId, String categoryType, String brand) {
